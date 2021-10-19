@@ -1,2 +1,2 @@
 # VideoToGif
-wpf .net application that converts video files to gifs for sharing
+wpf .net application that converts video files to gifs for sharing using ffmepg library
