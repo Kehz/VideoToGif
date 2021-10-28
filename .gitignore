@@ -350,5 +350,5 @@ MigrationBackup/
 .ionide/
 
 # media files
-.mp4
-.git
+*.mp4
+*.GIF
