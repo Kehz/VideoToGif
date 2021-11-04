@@ -47,5 +47,10 @@ namespace VideoToGif
 			MediaControls.openFile(openFile);
 		}
 
+		void BtnConvert_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
 	}
 }

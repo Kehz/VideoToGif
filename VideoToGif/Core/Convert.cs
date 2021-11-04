@@ -8,6 +8,15 @@ namespace VideoToGif.Core
 {
 	class Convert
 	{
-		
+		void ConvertToGif(String path)
+		{
+			int a;
+
+		}
+
+		void Execute(String args)
+		{
+			int b;
+		}
 	}
 }

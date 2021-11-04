@@ -98,8 +98,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FFMPEG\" />
     <Folder Include="Media\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FFMPEG\ffmpeg.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
