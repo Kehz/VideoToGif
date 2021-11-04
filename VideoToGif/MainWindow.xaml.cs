@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VideoToGif.Core;
 
+
 namespace VideoToGif
 {
 	/// <summary>
@@ -22,6 +23,8 @@ namespace VideoToGif
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		String filePath;
+		String fileName;
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -43,13 +46,18 @@ namespace VideoToGif
 
 		void BtnOpen_Click(object sender, RoutedEventArgs e)
 		{
+			String[] fileInfo;
 			OpenFileDialog openFile = new OpenFileDialog();
-			MediaControls.openFile(openFile);
+			fileInfo = MediaControls.openFile(openFile);
+			filePath = fileInfo[0];
+			fileName = fileInfo[1];
+			// MessageBox.Show(filePath + fileName);
+			videoPreview.Source = new Uri(filePath);
 		}
 
 		void BtnConvert_Click(object sender, RoutedEventArgs e)
 		{
-
+				ConvertGif.ConvertToGif(filePath, fileName);
 		}
 
 	}

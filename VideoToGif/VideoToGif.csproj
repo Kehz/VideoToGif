@@ -63,7 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\Convert.cs" />
+    <Compile Include="Core\ConvertGif.cs" />
     <Compile Include="Core\FacadeFFMPEG.cs" />
     <Compile Include="Core\MediaControls.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -97,11 +97,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Media\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="FFMPEG\ffmpeg.exe" />
+    <Content Include="Media\sample.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

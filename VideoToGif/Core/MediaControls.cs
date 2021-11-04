@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,15 @@ namespace VideoToGif.Core
 			m.Pause();
 		}
 
-		public static void openFile(OpenFileDialog f)
+		public static void loadMedia(MediaElement m, String filePath)
 		{
+			
+		}
+
+		public static String[] openFile(OpenFileDialog f)
+		{
+			String filePath = "";
+			String fileName = "";
 			f.Multiselect = false;
 			f.Filter = "MP4 files (*.mp4)|*.mp4|All files (*.*)|*.*";
 			f.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
@@ -30,9 +38,12 @@ namespace VideoToGif.Core
 			{
 				foreach (string filename in f.FileNames)
 				{
-					
+					filePath= f.FileName;
+					fileName = Path.GetFileNameWithoutExtension(filePath);
 				}
 			}
+			return new String[]{filePath, fileName};
 		}
+
 	}
 }

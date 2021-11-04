@@ -24,9 +24,9 @@
 			<RowDefinition Height="50"/>
 		</Grid.RowDefinitions>
 		<Button Name="btnOpen" Content="Open File" Click="BtnOpen_Click" Grid.Column="1" Grid.Row="4" Width="90" />
-		<MediaElement Name="videoPreview" Source ="P:\Projects\VideoToGif\VideoToGif\Media\sample.mp4" Grid.Column="3" Grid.Row="1" LoadedBehavior="Manual"/>
+		<MediaElement Name="videoPreview" Grid.Column="3" Grid.Row="1" LoadedBehavior="Manual"/>
 		<Button x:Name="btnPlayPause" Content="Play" Click="BtnPlayPause_Click" Grid.Column="3" Grid.Row="2" Width="90" Height="40"/>
-		<Button Content="Convert"  Grid.Column="4" Grid.Row="4" Width="90" HorizontalAlignment="Right"/>
+		<Button Content="Convert"  Click="BtnConvert_Click" Grid.Column="4" Grid.Row="4" Width="90" HorizontalAlignment="Right"/>
 		<CheckBox Grid.ColumnSpan="4" Grid.Row="3" x:Name="Trim" Content="Trim" HorizontalAlignment="Center" Margin="90,0,0,0" VerticalAlignment="Bottom" />
 	</Grid>
 </Window>
