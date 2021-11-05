@@ -1,18 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using VideoToGif.Core;
 
 
@@ -23,14 +11,14 @@ namespace VideoToGif
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		String filePath;
-		String fileName;
+		string filePath;
+		string fileName;
 		public MainWindow()
 		{
 			InitializeComponent();
 		}
 
-		void BtnPlayPause_Click(object sender, RoutedEventArgs e)
+		private void BtnPlayPause_Click(object sender, RoutedEventArgs e)
 		{
 			if (btnPlayPause.Content.ToString() == "Play")
 			{
@@ -44,7 +32,7 @@ namespace VideoToGif
 			}
 		}
 
-		void BtnOpen_Click(object sender, RoutedEventArgs e)
+		private void BtnOpen_Click(object sender, RoutedEventArgs e)
 		{
 			String[] fileInfo;
 			OpenFileDialog openFile = new OpenFileDialog();
@@ -55,10 +43,27 @@ namespace VideoToGif
 			videoPreview.Source = new Uri(filePath);
 		}
 
-		void BtnConvert_Click(object sender, RoutedEventArgs e)
+		private void Media_Opened(object sender, EventArgs e)
 		{
-				ConvertGif.ConvertToGif(filePath, fileName);
+			video_slider.Maximum = videoPreview.NaturalDuration.TimeSpan.TotalMilliseconds;
 		}
 
+		private void Media_Ended(object sender, EventArgs e)
+		{
+			MediaControls.mediaStop(videoPreview);
+		}
+
+		private void SeekMediaPosition(object sender, RoutedPropertyChangedEventArgs<double> args)
+		{
+			MediaControls.mediaPause(videoPreview);
+			int Slider = (int)video_slider.Value;
+			TimeSpan ts = new TimeSpan(0, 0, 0, 0, Slider);
+			videoPreview.Position = ts;
+		}
+
+		private void BtnConvert_Click(object sender, RoutedEventArgs e)
+		{
+			ConvertGif.ConvertToGif(filePath, fileName);
+		}
 	}
 }

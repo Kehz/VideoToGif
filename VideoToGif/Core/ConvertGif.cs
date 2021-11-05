@@ -20,9 +20,9 @@ namespace VideoToGif.Core
 		{
 			var startInfo = new ProcessStartInfo
 			{
-				FileName = @"C:\Users\adams\Documents\Code\VideoToGif\VideoToGif\FFMPEG\ffmpeg.exe",
+				FileName = @"P:\Projects\VideoToGif\VideoToGif\FFMPEG\ffmpeg.exe",
 				Arguments = $"-i {filePath} -pix_fmt rgb24 -r 10 {fileName}.gif",
-				WorkingDirectory = @"C:\Users\adams\Documents\Code\VideoToGif\VideoToGif\Media\",
+				WorkingDirectory = @"P:\Projects\VideoToGif\VideoToGif\Media",
 				UseShellExecute = false,
 
 			};

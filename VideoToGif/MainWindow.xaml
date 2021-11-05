@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:VideoToGif"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
-		Background= "DarkGray">
+		Background= "Gray">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="5" />
@@ -24,9 +24,18 @@
 			<RowDefinition Height="50"/>
 		</Grid.RowDefinitions>
 		<Button Name="btnOpen" Content="Open File" Click="BtnOpen_Click" Grid.Column="1" Grid.Row="4" Width="90" />
-		<MediaElement Name="videoPreview" Grid.Column="3" Grid.Row="1" LoadedBehavior="Manual"/>
+		<MediaElement Name="videoPreview" Grid.Column="3" Grid.Row="1" LoadedBehavior="Manual"
+					  MediaOpened="Media_Opened" MediaEnded="Media_Ended" UnloadedBehavior="Stop"/>
 		<Button x:Name="btnPlayPause" Content="Play" Click="BtnPlayPause_Click" Grid.Column="3" Grid.Row="2" Width="90" Height="40"/>
 		<Button Content="Convert"  Click="BtnConvert_Click" Grid.Column="4" Grid.Row="4" Width="90" HorizontalAlignment="Right"/>
-		<CheckBox Grid.ColumnSpan="4" Grid.Row="3" x:Name="Trim" Content="Trim" HorizontalAlignment="Center" Margin="90,0,0,0" VerticalAlignment="Bottom" />
+		<CheckBox Grid.ColumnSpan="4" Grid.Row="3" x:Name="Trim" Content="Trim" 
+				  HorizontalAlignment="Center" Margin="90,0,0,0" VerticalAlignment="Bottom" />
+		<Slider Grid.Row="4" x:Name="video_slider" HorizontalAlignment="Center"  Margin="277,0,273,27"
+				Width="500" AutoToolTipPlacement="TopLeft" 
+				AutoToolTipPrecision="0" ValueChanged="SeekMediaPosition" Grid.Column="3"/>
+		<TextBox Name="StartBox" HorizontalAlignment="Left" Height="23" Grid.Column="3" Grid.Row="5"
+				 TextWrapping="Wrap"  VerticalAlignment="Top" Width="63" TextAlignment="Center"/>
+		<TextBox Name="EndBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="57" 
+				 TextAlignment="Center" RenderTransformOrigin="1.841,0.783"/>
 	</Grid>
 </Window>
